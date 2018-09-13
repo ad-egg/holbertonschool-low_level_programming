@@ -7,11 +7,6 @@
  */
 int main(void)
 {
-	char az;
-	
-	for(az = 'a' ; ch <= 'z' ; az++)
-	{
-		putchar(az);
-	}
+	putchar("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
 	return (0);
 }
