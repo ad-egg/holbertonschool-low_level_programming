@@ -1,4 +1,4 @@
-nclude <stdio.h>
+#include <stdio.h>
 
 /**
  * main - Entry point
@@ -7,6 +7,17 @@ nclude <stdio.h>
  */
 int main(void)
 {
-	putchar("abcdfghijklmnoprstuvwxyz");
+	char eq;
+
+	for (eq = 'a' ; eq <= 'z' ; eq++)
+	{
+		while (eq != 'e' && eq != 'q')
+		{
+			putchar(eq);
+			break;
+		}
+	}
+	putchar ('\n');
+
 	return (0);
 }
