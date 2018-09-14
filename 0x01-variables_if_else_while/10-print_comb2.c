@@ -11,8 +11,8 @@ int main(void)
 
 	for (no = 0 ; no < 100 ; no++)
 	{
-		putchar((no/10) + '0');
-		putchar((no%10) + '0');
+		putchar((no / 10) + '0');
+		putchar((no % 10) + '0');
 		if (no != 99)
 		{
 			putchar(',');
