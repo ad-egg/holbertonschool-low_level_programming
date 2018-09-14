@@ -13,8 +13,11 @@ int main(void)
 	{
 		putchar((no/10) + '0');
 		putchar((no%10) + '0');
-		putchar(',');
-		putchar(' ');
+		if (no != 99)
+		{
+			putchar(',');
+			putchar(' ');
+		}
 	}
 	putchar ('\n');
 
