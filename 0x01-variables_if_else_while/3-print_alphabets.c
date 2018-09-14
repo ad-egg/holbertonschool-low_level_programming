@@ -7,6 +7,18 @@
  */
 int main(void)
 {
-	putchar("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
+	char az;
+	char AZ;
+
+	for (az = 'a' ; az <= 'z' ; az++)
+	{
+		putchar(az);
+	}
+	for (AZ = 'A' ; AZ <= 'Z' ; AZ++)
+	{
+		putchar(AZ);
+	}
+	putchar ('\n');
+
 	return (0);
 }
