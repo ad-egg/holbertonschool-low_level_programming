@@ -3,6 +3,8 @@
 /**
  * _isalpha - Entry point
  *
+ * @c: this variable is checked for whether or not it is a letter
+ *
  * Return: Always 0 (Success)
  */
 

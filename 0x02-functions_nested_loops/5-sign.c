@@ -3,6 +3,8 @@
 /**
  * print_sign - Entry point
  *
+ * @n: this variable is checked for its absolute value
+ *
  * Return: Always 0 (Success)
  */
 
