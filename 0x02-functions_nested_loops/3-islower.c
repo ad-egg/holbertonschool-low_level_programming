@@ -3,7 +3,7 @@
 /**
  * _islower - Entry point
  *
- * @c: is checked for whether or not it is a lowercase character 
+ * @c: is checked for whether or not it is a lowercase character
  *
  * Return: Always 0 (Success)
  */
