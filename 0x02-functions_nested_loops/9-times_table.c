@@ -13,7 +13,13 @@ void times_table(void)
 	{
 		for (hor = 0; hor <= 9; hor++)
 		{
-			if ((ver * hor) <= 9)
+			if (hor == 0)
+			{
+				_putchar((ver * hor) + '0');
+				_putchar(',');
+				_putchar(' ');
+			}
+			else if ((ver * hor) <= 9)
 			{
 				_putchar(' ');
 				_putchar((ver * hor) + '0');
@@ -36,5 +42,4 @@ void times_table(void)
 		}
 		_putchar('\n');
 	}
-	_putchar('\n');
 }
