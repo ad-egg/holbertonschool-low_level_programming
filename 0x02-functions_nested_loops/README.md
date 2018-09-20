@@ -23,4 +23,6 @@ This function prints the 9 times table starting with 0.
 ### 10-add.c
 This function adds two integers and returns the result. 
 ### 11-print_to_98.c
-This function prints all integers from `n` to 98. 
+This function prints all integers from `n` to 98.
+### 100-times_table.c
+This function prints the times table for `n` when `n` is greater than 0 and less than or equal to 15. 
