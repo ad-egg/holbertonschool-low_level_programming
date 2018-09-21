@@ -2,6 +2,7 @@
 
 /**
  * print_diagonal - prints a diagonal line
+ * @n: this variable determines the position of the bottom of the diagonal line
  */
 
 void print_diagonal(int n)
@@ -25,7 +26,7 @@ void print_diagonal(int n)
 			}
 			_putchar('\\');
 			_putchar('\n');
-			
+
 		}
 	}
 }
