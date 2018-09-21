@@ -10,12 +10,8 @@ void print_triangle(int size)
 {
 	int x;
 	int y;
-	int space;
-	int hasht;
 
-	
-
-	if (size == 0)
+	if (size <= 0)
 		_putchar('\n');
 	else
 	{
@@ -23,10 +19,12 @@ void print_triangle(int size)
 		{
 			for (x = 1; x < size; x++)
 			{
-				for (space = n; space < y; space --)
-
-		_putchar (32);
-		_putchar(35);
-		_putchar('\n');
+				if (y <= (size - x))
+					_putchar(' ');
+				else
+					_putchar(35);
+			}
+			_putchar('\n');
+		}
 	}
 }
