@@ -31,4 +31,5 @@ void rev_string(char *s)
 		regular++;
 		reverse--;
 	}
+	_putchar('\n');
 }
