@@ -3,17 +3,17 @@
 /**
  * rev_string - reverses a string
  *
- * @*s: the string at this pointer gets reversed
+ * @s: the string at this pointer gets reversed
  */
 
 void rev_string(char *s)
 {
-	int regular;
+	int index;
 	int reverse;
 	int n;
 	char *original;
 
-	regular = 0;
+	index = 0;
 	reverse = 0;
 	*original = s;
 
@@ -23,12 +23,12 @@ void rev_string(char *s)
 		s++;
 	}
 	reverse--;
-	while (regular <= reverse)
+	while (index <= reverse)
 	{
-		n = *(original + regular);
-		*(original + regular) = *(original + reverse);
+		n = *(original + index);
+		*(original + index) = *(original + index);
 		*(original + reverse) = n;
-		regular++;
+		index++;
 		reverse--;
 	}
 	_putchar('\n');
