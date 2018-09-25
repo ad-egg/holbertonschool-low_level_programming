@@ -3,7 +3,7 @@
 /**
  * puts_half - prints half of a string
  *
- * @*str: half of this string will be printed
+ * @str: half of this string will be printed
  */
 
 void puts_half(char *str)
@@ -20,6 +20,7 @@ void puts_half(char *str)
 	if ((len % 2) == 0)
 	{
 		str = (str - (len / 2));
+	}
 	else
 		str = (str - ((len - 1) / 2));
 	while (*str != '\0')
