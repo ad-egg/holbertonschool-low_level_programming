@@ -3,19 +3,16 @@
 /**
  * _puts - prints a string
  *
- * @*str: pointer to string
+ * @str: pointer to string
  */
 
 void _puts(char *str)
 {
-	char *n;
+	int len;
 
-	n = str;
-
-	while (n != '\0')
+	for (len = 0;str[len] != '\0'; len++)
 	{
-		_putchar(*n);
-		n++;
+		_putchar(str[len]);
 	}
 	_putchar('\n');
 }
