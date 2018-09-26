@@ -10,15 +10,15 @@
 
 void print_array(int *a, int n)
 {
-	int rep;
+	int elem;
 
-	rep = 0;
+	elem = 0;
 
-	while (rep < n)
+	while (elem < n)
 	{
-		printf("%i", a[rep]);
-		rep++;
-		if (rep != n)
+		printf("%i", a[elem]);
+		elem++;
+		if (elem != n)
 			printf(", ");
 	}
 	printf("\n");
