@@ -24,3 +24,5 @@ This C program prints all possible combinations of single-digit numbers using th
 This C program prints the numbers from `00` to `99`.
 ### 100-print_comb3.c
 This C program prints all possible different combinations of two digits.
+### 101-print_comb4.c
+This C program prints all possible different combinations of three digits.
