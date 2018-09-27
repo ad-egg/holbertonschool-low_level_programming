@@ -22,3 +22,5 @@ This C program prints all the numbers of base 16 in lowercase using the `putchar
 This C program prints all possible combinations of single-digit numbers using the `putchar` function. 
 ### 10-print_comb2.c
 This C program prints the numbers from `00` to `99`.
+### 100-print_comb3.c
+This C program prints all possible different combinations of two digits.
