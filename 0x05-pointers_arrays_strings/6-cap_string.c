@@ -34,7 +34,6 @@ char *cap_string(char *str)
 				(str[ind - 1] == '}'))
 			{
 				str[ind] = (str[ind] - 32);
-				continue;
 			}
 
 		}
