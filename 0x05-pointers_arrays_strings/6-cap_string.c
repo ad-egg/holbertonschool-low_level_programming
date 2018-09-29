@@ -17,20 +17,28 @@ char *cap_string(char *str)
 
 	while (str[ind] != '\0')
 	{
-		
+		if ((str[ind] >= 'a') && (str[ind] <= 'z'))
+		{
+			if ((str[ind - 1] == ',') ||
+				(str[ind - 1] == ' ') ||
+				(str[ind - 1] == '\t') ||
+				(str[ind - 1] == '\n') ||
+				(str[ind - 1] == ';') ||
+				(str[ind - 1] == '.') ||
+				(str[ind - 1] == '!') ||
+				(str[ind - 1] == '?') ||
+				(str[ind - 1] == '"') ||
+				(str[ind - 1] == '(') ||
+				(str[ind - 1] == ')') ||
+				(str[ind - 1] == '{') ||
+				(str[ind - 1] == '}'))
+			{
+				str[ind] = (str[ind] - 32);
+				continue;
+			}
 
-
-
-
-
+		}
 		ind++;
-
-
-
-
-
-
-	str[0] = str[0] - 32;
-
+	}
 	return (fircaps);
 }
