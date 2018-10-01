@@ -23,11 +23,10 @@ unsigned int _strspn(char *s, char *accept)
 			if (*s == *accept)
 			{
 				len++;
+				break;
 			}
 			accept++;
 		}
-		if (*accept == '\0')
-			return (len);
 		s++;
 	}
 	return (len);
