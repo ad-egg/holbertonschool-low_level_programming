@@ -13,17 +13,22 @@
 unsigned int _strspn(char *s, char *accept)
 {
 	unsigned int len;
+	unsigned int x;
+	unsigned int y;
 
 	len = 0;
+	x = 0;
+	y = 0;
 
-	while (*s != '\0')
+	for (x = 0; (s[x] != '\0'); x++)
 	{
-		while (accept[len] != '\0')
+		if (len != x)
+			break;
+		for (y = 0; (accept[y] != '\0'); y++)
 		{
-			len++;
+			if (s[x] == accept[y])
+				len++;
 		}
-		s++;
 	}
-	len = (len + 1);
 	return (len);
 }
