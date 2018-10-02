@@ -19,7 +19,8 @@ void print_diagsums(int *a, int size)
 
 	for (i = 0; i < ((size * size)); (i += (size + 1)))
 		sumse = (sumse + a[i]);
-	for (get sum of other diagonal)
+	for (i = (size - 1); i < (size * size - 1); i += size - 1
+)
 		sumne = (sumne + a[i]);
 	printf("%d, %d\n", sumse, sumne);
 }
