@@ -1,4 +1,5 @@
 #include "holberton.h"
+int checksqrt(int n, int i);
 
 /**
  * _sqrt_recursion - returns the natural square root of a number
@@ -8,8 +9,6 @@
  * Return: natural square root of n,
  * if n does not have a natural square root, return -1
  */
-
-int checksqrt(int n, int i);
 
 int _sqrt_recursion(int n)
 {
