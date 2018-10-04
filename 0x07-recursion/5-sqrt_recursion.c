@@ -26,7 +26,7 @@ int _sqrt_recursion(int n)
  * @n: number who will be checked for natural square root
  * @i: variable used to test for whether n has natural square root
  *
- * Return: 
+ * Return: natural square root of n, if none return -1
  */
 
 int checksqrt(int n, int i)
