@@ -13,17 +13,11 @@ int checksqrt(int n, int i);
 
 int _sqrt_recursion(int n)
 {
-	int result;
-
-	result = ;
-
 	if ((n == 0) || (n == 1))
 		return (n);
 	else if (n < 0)
 		return (-1);
-	CALL OTHER FUNCTION 
-		return (result);
-	return (-1);
+	return (checksqrt(n, 1));
 }
 
 /**
@@ -37,6 +31,10 @@ int _sqrt_recursion(int n)
 
 int checksqrt(int n, int i)
 {
-
+	if ((i * i) == n)
+		return (i);
+	else if ((i * i) > n)
+		return (-1);
+	return (checksqrt(n, i + 1));
 }
 
