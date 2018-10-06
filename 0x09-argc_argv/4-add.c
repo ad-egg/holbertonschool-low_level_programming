@@ -53,9 +53,10 @@ int isnum(int j, char *s)
 {
 	while (s[j] != '\0')
 	{
-		if ((s[j] < '0') || (s[j] > '9'))
-			return (1);
+		if ((s[j] >= '0') && (s[j] <= '9'))
 		j++;
+		else
+			return (1);
 	}
 	return (0);
 }
