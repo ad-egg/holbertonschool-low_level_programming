@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-int isnum();
+int isnum(int j, char *s);
 
 /**
  * main - multiplies two numbers
@@ -15,30 +15,47 @@ int isnum();
 int main(int argc, char **argv)
 {
 	int ans;
+	int i;
+	int isnumber;
 
-	ans = (atoi(argv[1]) + atoi(argv[2]));
+	i = 1;
+	ans = 0;
+	isnumber = isnum(0, argv[i]);
 
 	if (argc == 1)
 		printf("0\n");
-	else if ( )
+	for (; i < argc; i++)
 	{
-		printf("Error");
-		return (1);
+		if (isnumber == 0)
+		{
+			ans += atoi(argv[i]);
+		}
+		else
+		{
+			printf("Error\n");
+			return (1);
+		}
 	}
-	else
-		printf("%i\n", ans);
+	printf("%i\n", ans);
 	return (0);
 }
 
 /**
  * isnum - checks if a symbol is a digit or not
  *
- * @:
+ * @j: index of string
+ * @s: string to be checked for symbols that are not digits
  *
- * Return: 
+ * Return: 0 if string contains only digits, 1 if not
  */
 
-int isnum()
+int isnum(int j, char *s)
 {
-
+	while (s[j] != '\0')
+	{
+		if ((s[j] < '0') || (s[j] > '9'))
+			return (1);
+		j++;
+	}
+	return (0);
 }
