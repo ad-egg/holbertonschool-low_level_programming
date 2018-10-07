@@ -18,16 +18,17 @@ int main(int argc, char *argv[])
 	int num1;
 	int num2;
 
-	num1 = atoi(argv[1]);
-	num2 = atoi(argv[2]);
-	ans = num1 * num2;
-
 	if (argc != 3)
 	{
 		printf("Error\n");
 		return (1);
 	}
 	else
+	{
+		num1 = atoi(argv[1]);
+		num2 = atoi(argv[2]);
+		ans = num1 * num2;
 		printf("%i\n", ans);
+	}
 	return (0);
 }
