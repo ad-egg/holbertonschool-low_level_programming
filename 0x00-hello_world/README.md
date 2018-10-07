@@ -14,7 +14,5 @@ This C program prints exactly `"Programming is like building a multilingual puzz
 This C program prints exactly `with proper grammar, but the outcome is a piece of art`. 
 ### 6-size.c
 This C program prints the sizes of various types on the computer it is compiled and run on. 
-### What happens when you type `gcc main.c`
-[This blog post](URL_TO_BLOG_POST) explains all the steps of compilation. 
 ### 100-intel
 This script generates the assembly code of a C code and saves it in an output file.
