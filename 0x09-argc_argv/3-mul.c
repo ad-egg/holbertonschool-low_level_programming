@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "holberton.h"
 
 /**
  * main - multiplies two numbers
@@ -11,11 +12,15 @@
  * returns 1 if program did not receive two arguments
  */
 
-int main(int argc, char **argv)
+int main(int argc, char *argv[])
 {
 	int ans;
+	int num1;
+	int num2;
 
-	ans = (atoi(argv[1]) * atoi(argv[2]));
+	num1 = atoi(argv[1]);
+	num2 = atoi(argv[2]);
+	ans = num1 * num2;
 
 	if (argc != 3)
 	{
