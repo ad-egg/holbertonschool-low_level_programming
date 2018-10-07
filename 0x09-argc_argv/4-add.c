@@ -20,21 +20,23 @@ int main(int argc, char **argv)
 
 	i = 1;
 	ans = 0;
-	isnumber = isnum(0, argv[i]);
 
 	if (argc == 1)
 		printf("0\n");
-	for (; i < argc; i++)
+	while (i < argc)
 	{
+		isnumber = isnum(0, argv[i]);
+
 		if (isnumber == 0)
 		{
 			ans += atoi(argv[i]);
 		}
-		else
+		else if (isnumber == 1)
 		{
 			printf("Error\n");
 			return (1);
 		}
+		i++;
 	}
 	printf("%i\n", ans);
 	return (0);
@@ -53,10 +55,9 @@ int isnum(int j, char *s)
 {
 	while (s[j] != '\0')
 	{
-		if ((s[j] >= '0') && (s[j] <= '9'))
-		j++;
-		else
+		if ((s[j] < 48) && (s[j] > 57))
 			return (1);
+		j++;
 	}
 	return (0);
 }
