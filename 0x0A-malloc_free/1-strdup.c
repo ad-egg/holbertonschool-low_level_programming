@@ -24,7 +24,7 @@ char *_strdup(char *str)
 	}
 	if (len < 1)
 		return (NULL);
-	pt = malloc(len * sizeof(char *));
+	pt = malloc(len * sizeof(char) + 1);
 	if (pt == NULL)
 	{
 		free(pt);
@@ -32,5 +32,6 @@ char *_strdup(char *str)
 	}
 	for (i = 0; i < len; i++)
 		pt[i] = str[i];
+	pt[i] = '\0';
 	return (pt);
 }
