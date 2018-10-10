@@ -14,33 +14,33 @@
 char *str_concat(char *s1, char *s2)
 {
 	char *pt;
-	unsigned int size, h, i, j, k;
-
-	j = 0;
-	k = 0;
+	int s1index = 0;
+	int s2index = 0;
+	int size;
+	int i;
+	int no;
 
 	if (s1 != NULL)
 	{
-		while (s1[j] != '\0')
-			j++;
+		while (s1[s1index] != '\0')
+			s1index++;
 	}
 	if (s2 != NULL)
 	{
-		while (s2[k] != '\0')
-			k++;
+		while (s2[s2index] != '\0')
+			s2index++;
 	}
-	size = (j + k);
+	size = (s1index + s2index);
 	pt = malloc(sizeof(char) * size + 1);
 	if (pt == NULL)
 		return (NULL);
-	for (i = 0; i < j; i++)
-	{
+	for (i = 0; i < s1index; i++)
 		pt[i] = s1[i];
-	}
-	for (h = 0; h < k; h++)
+	for (no = 0; no < s2index; no++)
 	{
-		pt[i + h] = s2[h];
+		pt[i] = s2[no];
+		i++;
 	}
-	pt[i + h] = '\0';
+	pt[i] = '\0';
 	return (pt);
 }
