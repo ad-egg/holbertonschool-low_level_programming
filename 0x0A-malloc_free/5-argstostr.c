@@ -15,6 +15,7 @@ char *argstostr(int ac, char **av)
 {
 	int i, j, len, ptlen;
 	char *pt;
+
 	len = 0;
 	ptlen = 0;
 
