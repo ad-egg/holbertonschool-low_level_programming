@@ -10,28 +10,38 @@
  * Return: pointer to concatenated string
  */
 
-char *str_nconcat(char *s1, char *s2, unsigned int n)
+char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	char *pt;
-	unsigned int s1index, s2index, lens1, lens2, total;
+	unsigned int s1index, s2index, total, i, j;
 
-	if ((s1 == NULL) || (s2 == NULL))
-		
-	for (s1index = 0; s1[s1index] != '\0'; s1index++)
-		lens1++;
-	for (s2index = 0; s2[s2index] != '\0'; s2index++)
-		lens2++;
-	if (n >= lens2)
-		total = lens1 + lens2 + 1;
+	s1index = 0;
+	s2index = 0;
+
+	if (s1 != NULL)
+	{
+		while (s1[s1index] != '\0')
+			s1index++;
+	}
+	if (s2 != NULL)
+	{
+		while (s2[s2index] != '\0')
+			s2index++;
+	}
+	if (n >= s2index)
+		total = s1index + s2index + 1;
 	else
-		total = lens1 + n + 1;
+		total = s1index + n + 1;
 	pt = malloc(sizeof(char) * total);
 	if (pt == NULL)
 		return (NULL);
-
-
-
-
+	for (i = 0; i < s1index; i++)
+		pt[i] = s1[i];
+	for (j = 0; j < n; j++)
+	{
+		pt[i] = s2[j];
+		i++;
+	}
 	pt[total] = '\0';
 	return (pt);
 }
