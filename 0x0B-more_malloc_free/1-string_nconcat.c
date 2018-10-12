@@ -2,10 +2,11 @@
 #include "holberton.h"
 
 /**
- * str_nconcat - concatenates two strings up to n bytes
+ * string_nconcat - concatenates two strings up to n bytes
  *
  * @s1: first string to be concatenated
  * @s2: second string to be concatenated
+ * @n: number of bytes to be concatenated from s2
  *
  * Return: pointer to concatenated string
  */
