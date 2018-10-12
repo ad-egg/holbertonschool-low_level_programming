@@ -17,12 +17,10 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 
 	if ((nmemb == 0) || (size == 0))
 		return (NULL);
-	pt = (char *)malloc(nmemb * size + 1);
+	pt = malloc(nmemb * size);
 	if (pt == NULL)
 		return (NULL);
-	for (i = 0; i < nmemb; i++)
+	for (i = 0; i < (nmemb * size); i++)
 		pt[i] = 0;
-	i++;
-	pt[i] = '\0';
 	return (pt);
 }
