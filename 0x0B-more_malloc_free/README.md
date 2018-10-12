@@ -8,3 +8,5 @@ This function concatenates two strings.
 This function allocates memory for an array using `malloc`.
 ### 3-array_range.c
 This function creates an array of integers.
+### 100-realloc.c
+This function reallocates a memory block using `malloc` and `free`.
