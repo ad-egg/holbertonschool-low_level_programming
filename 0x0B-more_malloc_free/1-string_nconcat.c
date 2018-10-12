@@ -38,6 +38,6 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		pt[i] = s2[j];
 		i++;
 	}
-	pt[total] = '\0';
+	pt[total - 1] = '\0';
 	return (pt);
 }
