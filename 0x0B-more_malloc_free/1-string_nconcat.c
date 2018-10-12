@@ -24,11 +24,15 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		while (s1[s1index] != '\0')
 			s1index++;
 	}
+	else
+		s1 = "";
 	if (s2 != NULL)
 	{
 		while (s2[s2index] != '\0')
 			s2index++;
 	}
+	else
+		s2 = "";
 	if (n >= s2index)
 		total = s1index + s2index + 1;
 	else
