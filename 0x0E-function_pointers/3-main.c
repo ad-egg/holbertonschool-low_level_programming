@@ -11,30 +11,31 @@
  * Return: Always 0 (Success)
  */
 
-int main(char argc, int *argv[])
+int main(int argc, char *argv[])
 {
-	int secondint, answer;
+	int answer, num1, num2;
+	char *rat;
 
 	if (argc != 4)
 	{
 		printf("Error\n");
-		exit (98);
+		exit(98);
 	}
-	if (get.op(*argv[2]) == NULL)
+	num1 = atoi(argv[1]);
+	num2 = atoi(argv[3]);
+	rat = argv[2];
+	if (((*rat == '/') || (*rat == '%')) &&
+		((num2 == 0) && (argv[2][1] == '\0')))
 	{
 		printf("Error\n");
-		exit (99);
+		exit(100);
 	}
-	secondint = atoi(*argv[3]);
-	if (((*argv[2] == '/') || (*argv[2] == '%')) &&
-		((secondint == 0) || (argv[2][1] != '\0')))
+	if (get_op_func(rat) == NULL)
 	{
 		printf("Error\n");
-		exit (100);
+		exit(99);
 	}
-
-
-	answer = atoi();
+	answer = get_op_func(rat)(num1, num2);
 	printf("%i\n", answer);
 	return (0);
 }
