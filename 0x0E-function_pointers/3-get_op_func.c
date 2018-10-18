@@ -25,9 +25,9 @@ int (*get_op_func(char *s))(int, int)
 
 	i = 0;
 
-	if ((s == NULL) || (s[i] != '\0'))
+	if ((s == NULL) || (s[1] != '\0'))
 		return (NULL);
-	while ((i < 5) && (*s != *(op[i].op)))
+	while ((i < 5) && (*s != *(ops[i].op)))
 		i++;
-	return (op[i].f);
+	return (ops[i].f);
 }
