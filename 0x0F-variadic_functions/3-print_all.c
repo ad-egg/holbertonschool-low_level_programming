@@ -31,9 +31,9 @@ void print_all(const char * const format, ...)
 	{
 		while(j < 4)
 		{
-			
+			if (format[i] == anyth[j].car)
 			{
-			
+				
 			}
 			j++;
 		}
