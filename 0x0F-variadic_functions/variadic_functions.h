@@ -1,6 +1,6 @@
 #ifndef VARIADICFUNCS_H
 #define VARIADICFUNCS_H
-
+#include <stdarg.h>
 /**
  * struct datatypes - for data types
  *
