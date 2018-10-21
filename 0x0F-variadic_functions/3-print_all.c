@@ -71,7 +71,7 @@ void print_all(const char * const format, ...)
 
 	i = 0;
 	j = 0;
-	commsp = ", ";
+	commsp = "";
 
 	va_start(args, format);
 
@@ -81,13 +81,9 @@ void print_all(const char * const format, ...)
 		{
 			if (format[i] == *(anyth[j].car))
 			{
-				if (format[i + 1] != '\0')
-				{
-					anyth[j].f(args);
-					printf("%s", commsp);
-				}
-				else
-					anyth[j].f(args);
+				printf("%s", commsp);
+				anyth[j].f(args);
+				commsp = ", ";
 			}
 			j++;
 		}
