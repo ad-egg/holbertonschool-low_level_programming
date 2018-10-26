@@ -67,7 +67,7 @@ list_t *add_node_end(list_t **head, const char *str)
 	if ((head == NULL) || (str == NULL))
 		return (NULL);
 	current = *head;
-	appended = malloc (sizeof(list_t));
+	appended = malloc(sizeof(list_t));
 	if (appended == NULL)
 		return (NULL);
 	appended->str = _strdup(str);
