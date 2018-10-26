@@ -24,7 +24,7 @@ int _strlen(const char *s)
 }
 
 /**
- * list_t - adds a new node at the beginning of a list_t list
+ * add_node - adds a new node at the beginning of a list_t list
  * @head: pointer to list_t list
  * @str: node to be added
  * Return: address of new element or NULL if it failed
@@ -40,7 +40,7 @@ list_t *add_node(list_t **head, const char *str)
 		return (NULL);
 	len = _strlen(str);
 	ptr = *head;
-	dup = malloc (sizeof(char) * (len + 1));
+	dup = malloc(sizeof(char) * (len + 1));
 	if (dup == NULL)
 		return (NULL);
 	for (i = 0; str[i] != '\0'; i++)
