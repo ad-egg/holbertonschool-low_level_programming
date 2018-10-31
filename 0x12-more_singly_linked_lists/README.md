@@ -22,3 +22,7 @@ This function that returns the sum of all the data of a `listint_t` linked list.
 This function inserts a new node at a given position.
 ### 10-delete_nodeint.c
 This function deletes the node at index `index` of a `listint_t` linked list.
+### 101-print_listint_safe.c
+This function prints a `listint_t` linked list.
+### 102-free_listint_safe.c
+This function frees a `listint_t` list.
