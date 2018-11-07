@@ -13,21 +13,22 @@ int main(int argc, char *argv[])
 
 	if (argc != 3)
 	{
-		printf("Usage: cp file_from file_to\n");
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
 	file_from = open(argv[1], O_RDONLY);
 	bread = read(file_from, buff, 1024);
 	if ((file_from == -1) || (bread == -1))
 	{
-		printf("Error: Can't read from file %s\n", argv[1]);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s
+			\n", argv[1]);
 		exit(98);
 	}
 	file_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	bwritten = write(file_to, buff, bread);
 	if ((file_to == -1) || (bwritten == -1))
 	{
-		printf("Error: Can't write to %s\n", argv[2]);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 		exit(99);
 	}
 	close_from = close(file_from);
@@ -35,9 +36,11 @@ int main(int argc, char *argv[])
 	if ((close_from == -1) || (close_to == -1))
 	{
 		if (close_from == -1)
-			printf("Error: Can't close fd %i\n", file_from);
+			dprintf(STDERR_FILENO, "Error: Can't close fd %i
+				\n", file_from);
 		if (close_to == -1)
-			printf("Error: Can't close fd %i\n", file_to);
+			dprintf(STDERR_FILENO, "Error: Can't close fd %i
+				\n", file_to);
 		exit(100);
 	}
 	return (0);
