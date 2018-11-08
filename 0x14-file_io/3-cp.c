@@ -34,35 +34,48 @@ void not_a_close(int n)
  * main - copies the content of a file to another file
  * @argc: number of arguments
  * @argv: points to arguments
- * Return: 0 on success
+ * Return: 0 on success, -1 on failure
  */
 int main(int argc, char *argv[])
 {
-	int call, shave, bread, bwritten, predicament, danger;
-	char buff[1024];
+	int call, shave, pickaxe, shovel, predicament, danger;
+	char *grave;
 
+	grave = NULL;
 	if (argc != 3)
 	{
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
+	grave = malloc(1024);
+	if (grave == NULL)
+		return (-1);
 	call = open(argv[1], O_RDONLY);
 	if (call == -1)
 		fail_from(argv[1]);
 	shave = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	if (shave == -1)
 		fail_to(argv[2]);
-	bread = read(call, buff, 1024);
-	if (bread == -1)
-		fail_from(argv[1]);
-	bwritten = write(shave, buff, bread);
-	if (bwritten == -1)
-		fail_to(argv[2]);
+	while ((pickaxe = read(call, grave, 1024)) > 0)
+	{
+		shovel = write(shave, grave, pickaxe);
+		if (shovel == 1024)
+		{
+			free(grave);
+			grave = malloc(1024);
+			if (grave == NULL)
+				return (-1);
+			shave = open(argv[2], O_WRONLY | O_APPEND);
+			if (shave == -1)
+				fail_to(argv[2]);
+		}
+	}
 	danger = close(call);
 	if (danger == -1)
 		not_a_close(call);
 	predicament = close(shave);
 	if (predicament == -1)
 		not_a_close(shave);
+	free(grave);
 	return (0);
 }
