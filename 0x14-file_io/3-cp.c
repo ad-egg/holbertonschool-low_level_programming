@@ -1,23 +1,33 @@
 #include "holberton.h"
 
 /**
- * fail_from - prints error message to standard error and exits with value 98
+ * do_not - prints error message to standard error and exits with value 98 if
+ * integer passed has value of -1
+ * @n: integer value to be checked
  * @str: name of file that failed to open or read
  */
-void fail_from(char *str)
+void do_not(int n, char *str)
 {
-	dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", str);
-	exit(98);
+	if (n == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", str);
+		exit(98);
+	}
 }
 
 /**
- * fail_to - prints error message to standard error and exits with value 99
+ * carelessly - prints error message to standard error and exits with value 99
+ * if integer passed has value of -1
+ * @n: integer value to be checked
  * @str: name of file that failed to open or write
  */
-void fail_to(char *str)
+void carelessly(int n, char *str)
 {
-	dprintf(STDERR_FILENO, "Error: Can't write to %s\n", str);
-	exit(99);
+	if (n == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", str);
+		exit(99);
+	}
 }
 
 /**
@@ -31,11 +41,11 @@ void not_a_close(int n)
 }
 
 /**
- * get_ready - prints message to standard error and exits with value 97
+ * impending_doom - prints message to standard error and exits with value 97
  * if integer passed does not have value of 3
  * @n: integer whose value will be checked
  */
-void get_ready(int n)
+void impending_doom(int n)
 {
 	if (n != 3)
 	{
@@ -55,32 +65,27 @@ int main(int argc, char *argv[])
 	int call, shave, pickaxe, shovel, predicament, danger;
 	char *grave = NULL;
 
-	get_ready(argc);
+	impending_doom(argc);
 	grave = malloc(1024);
 	if (grave == NULL)
 		return (-1);
 	call = open(argv[1], O_RDONLY);
-	if (call == -1)
-		fail_from(argv[1]);
+	do_not(call, argv[1]);
 	shave = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
-	if (shave == -1)
-		fail_to(argv[2]);
+	carelessly(shave, argv[2]);
 	while ((pickaxe = read(call, grave, 1024)) != 0)
 	{
-		if (pickaxe == -1)
-			fail_from(argv[1]);
+		do_not(pickaxe, argv[1]);
 		shovel = write(shave, grave, pickaxe);
-		if (shovel == -1)
-			fail_to(argv[2]);
-		else if (shovel == 1024)
+		carelessly(shovel, argv[2]);
+		if (shovel == 1024)
 		{
 			free(grave);
 			grave = malloc(1024);
 			if (grave == NULL)
 				return (-1);
 			shave = open(argv[2], O_WRONLY | O_APPEND);
-			if (shave == -1)
-				fail_to(argv[2]);
+			carelessly(shave, argv[2]);
 		}
 	}
 	danger = close(call);
