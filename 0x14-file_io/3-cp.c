@@ -58,8 +58,12 @@ int main(int argc, char *argv[])
 		fail_to(argv[2]);
 	while ((pickaxe = read(call, grave, 1024)) > 0)
 	{
+		if (pickaxe == -1)
+			fail_from(argv[1]);
 		shovel = write(shave, grave, pickaxe);
-		if (shovel == 1024)
+		if (shovel == -1)
+			fail_to(argv[2]);
+		else if (shovel == 1024)
 		{
 			free(grave);
 			grave = malloc(1024);
