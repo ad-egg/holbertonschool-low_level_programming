@@ -30,10 +30,10 @@ void fail_to(char *str)
 }
 
 /**
- * fail_close - prints error message to standard error and exits with value 100
+ * not_a_close - prints error message to standard error and exits with value 100
  * @n: file descriptor value passed to function
  */
-void very_close(int n)
+void not_a_close(int n)
 {
 	dprintf(STDERR_FILENO, "Error: Can't close fd %i\n", n);
 	exit(100);
@@ -66,9 +66,9 @@ int main(int argc, char *argv[])
 		fail_to(argv[2]);
 	danger = close(call);
 	if (danger == -1)
-		very_close(call);
+		not_a_close(call);
 	predicament = close(shave);
 	if (predicament == -1)
-		very_close(shave);
+		not_a_close(shave);
 	return (0);
 }
