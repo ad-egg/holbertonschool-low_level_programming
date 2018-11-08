@@ -1,4 +1,44 @@
 #include "holberton.h"
+
+/**
+ * wrongargc - prints error message to standard error and exits with value 97
+ */
+void wrongargc(void)
+{
+	dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
+	exit(97);
+}
+
+/**
+ * fail_from - prints error message to standard error and exits with value 98
+ * @str: name of file that failed to open or read
+ */
+void fail_from(char *str)
+{
+	dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", str);
+	exit(98);
+}
+
+/**
+ * fail_to - prints error message to standard error and exits with value 99
+ * @str: name of file that failed to open or write
+ */
+void fail_to(char *str)
+{
+	dprintf(STDERR_FILENO, "Error: Can't write to %s\n", str);
+	exit(99);
+}
+
+/**
+ * fail_close - prints error message to standard error and exits with value 100
+ * @n: file descriptor value passed to function
+ */
+void very_close(int n)
+{
+	dprintf(STDERR_FILENO, "Error: Can't close fd %i\n", n);
+	exit(100);
+}
+
  /**
  * main - copies the content of a file to another file
  * @argc: number of arguments
@@ -7,49 +47,28 @@
  */
 int main(int argc, char *argv[])
 {
-	int file_from, file_to, bread, bwritten, close_to, close_from;
+	int call, shave, bread, bwritten, predicament, danger;
 	char buff[1024];
 
 	if (argc != 3)
-	{
-		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
-		exit(97);
-	}
-	file_from = open(argv[1], O_RDONLY);
-	if (file_from == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-		exit(98);
-	}
-	file_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
-	if (file_to == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-		exit(99);
-	}
-	bread = read(file_from, buff, 1024);
+		wrongargc;
+	call = open(argv[1], O_RDONLY);
+	if (call == -1)
+		fail_from(argv[1]);
+	shave = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
+	if (shave == -1)
+		fail_to(argv[2]);
+	bread = read(close, buff, 1024);
 	if (bread == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-		exit(98);
-	}
-	bwritten = write(file_to, buff, bread);
+		fail_from(argv[1]);
+	bwritten = write(shave, buff, bread);
 	if (bwritten == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-		exit(99);
-	}
-	close_from = close(file_from);
-	close_to = close(file_to);
-	if (close_from == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %i\n", file_from);
-		exit(100);
-	}
-	if (close_to == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %i\n", file_to);
-		exit(100);
-	}
+		fail_to(argv[2]);
+	danger = close(call);
+	if (danger == -1)
+		very_close(call);
+	predicament = close(shave);
+	if (predicament == -1)
+		very_close(shave);
 	return (0);
 }
