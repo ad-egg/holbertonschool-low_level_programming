@@ -1,15 +1,6 @@
 #include "holberton.h"
 
 /**
- * wrongargc - prints error message to standard error and exits with value 97
- */
-void wrongargc(void)
-{
-	dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
-	exit(97);
-}
-
-/**
  * fail_from - prints error message to standard error and exits with value 98
  * @str: name of file that failed to open or read
  */
@@ -30,7 +21,7 @@ void fail_to(char *str)
 }
 
 /**
- * not_a_close - prints error message to standard error and exits with value 100
+ * not_a_close - prints error message to standard error and exit with value 100
  * @n: file descriptor value passed to function
  */
 void not_a_close(int n)
@@ -51,14 +42,17 @@ int main(int argc, char *argv[])
 	char buff[1024];
 
 	if (argc != 3)
-		wrongargc;
+	{
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
+		exit(97);
+	}
 	call = open(argv[1], O_RDONLY);
 	if (call == -1)
 		fail_from(argv[1]);
 	shave = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	if (shave == -1)
 		fail_to(argv[2]);
-	bread = read(close, buff, 1024);
+	bread = read(call, buff, 1024);
 	if (bread == -1)
 		fail_from(argv[1]);
 	bwritten = write(shave, buff, bread);
