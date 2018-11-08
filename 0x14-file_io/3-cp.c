@@ -84,8 +84,6 @@ int main(int argc, char *argv[])
 			grave = malloc(1024);
 			if (grave == NULL)
 				return (-1);
-			shave = open(argv[2], O_WRONLY | O_APPEND);
-			carelessly(shave, argv[2]);
 		}
 	}
 	danger = close(call);
