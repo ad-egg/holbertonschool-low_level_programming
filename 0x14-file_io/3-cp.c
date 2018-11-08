@@ -41,7 +41,6 @@ int main(int argc, char *argv[])
 	int call, shave, pickaxe, shovel, predicament, danger;
 	char *grave;
 
-	grave = NULL;
 	if (argc != 3)
 	{
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
@@ -56,7 +55,7 @@ int main(int argc, char *argv[])
 	shave = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	if (shave == -1)
 		fail_to(argv[2]);
-	while ((pickaxe = read(call, grave, 1024)) > 0)
+	while ((pickaxe = read(call, grave, 1024)) != 0)
 	{
 		if (pickaxe == -1)
 			fail_from(argv[1]);
