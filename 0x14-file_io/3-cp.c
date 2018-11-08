@@ -31,6 +31,20 @@ void not_a_close(int n)
 }
 
 /**
+ * get_ready - prints message to standard error and exits with value 97
+ * if integer passed does not have value of 3
+ * @n: integer whose value will be checked
+ */
+void get_ready(int n)
+{
+	if (n != 3)
+	{
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
+		exit(97);
+	}
+}
+
+/**
  * main - copies the content of a file to another file
  * @argc: number of arguments
  * @argv: points to arguments
@@ -39,13 +53,9 @@ void not_a_close(int n)
 int main(int argc, char *argv[])
 {
 	int call, shave, pickaxe, shovel, predicament, danger;
-	char *grave;
+	char *grave = NULL;
 
-	if (argc != 3)
-	{
-		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
-		exit(97);
-	}
+	get_ready(argc);
 	grave = malloc(1024);
 	if (grave == NULL)
 		return (-1);
