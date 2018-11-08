@@ -30,7 +30,7 @@ void not_a_close(int n)
 	exit(100);
 }
 
- /**
+/**
  * main - copies the content of a file to another file
  * @argc: number of arguments
  * @argv: points to arguments
