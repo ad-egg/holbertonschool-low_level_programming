@@ -16,3 +16,5 @@ This C program prints exactly `with proper grammar, but the outcome is a piece o
 This C program prints the sizes of various types on the computer it is compiled and run on. 
 ### 100-intel
 This script generates the assembly code of a C code and saves it in an output file.
+### 101-quote.c
+This C program prints exactly `and that piece of art is ueseful" - Dora Korpar, 2015-10-19` followed by a new line to the standard error.
