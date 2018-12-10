@@ -1,24 +1,18 @@
 #include "holberton.h"
 
 /**
- * _abs - Entry point
- *
- * @no: the absolute value of this variable is displayed
- *
- * Return: Always 0 (Success)
+ * _abs - returns absolute value of an integer
+ * @no: integer whose absolute value is to be returned
+ * Return: absolute value of an integer
  */
 
 int _abs(int no)
 {
-	if (no >= 0)
-	{
-		return (no);
-	}
-	else
-	{
-		return (no * -1);
-	}
-	_putchar('\n');
+	int n2;
 
-	return (0);
+	if (no >= 0)
+		n2 = no;
+	else if (no < 0)
+		n2 = no * -1;
+	return (n2);
 }
