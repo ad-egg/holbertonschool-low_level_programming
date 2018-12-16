@@ -13,15 +13,15 @@ int main(void)
 	{
 		p1 = p / 10;
 		p2 = p % 10;
-		putchar(p1 + '0');
-		putchar(p2 + '0');
-		putchar(' ');
 		for (q = 1; q < 100; q++)
 		{
 			q1 = q / 10;
 			q2 = q % 10;
-			if (p < 1)
+			if (p < q)
 			{
+				putchar(p1 + '0');
+				putchar(p2 + '0');
+				putchar(' ');
 				putchar(q1 + '0');
 				putchar(q2 + '0');
 				if (p < 98)
