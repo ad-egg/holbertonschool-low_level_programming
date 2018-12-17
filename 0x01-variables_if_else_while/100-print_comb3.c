@@ -1,25 +1,23 @@
 #include <stdio.h>
 
 /**
- * main - Entry point
- *
+ * main - prints all possible combinations of two digits
  * Return: Always 0 (Success)
  */
 
 int main(void)
 {
-	int n;
+	int n, n1, n2;
 
 	for (n = 1; n <= 89; n++)
 	{
-		if ((n % 10) > (n / 10))
+		n1 = n / 10;
+		n2 = n % 10;
+		if (n1 < n2)
 		{
-			putchar((n / 10) + '0');
-			if ((n / 10) != (n % 10))
-				putchar((n % 10) + '0');
-			else
-				continue;
-			if (n < 89)
+			putchar(n1 + '0');
+			putchar(n2 + '0');
+			if (n1 < 8)
 			{
 				putchar(',');
 				putchar(' ');
@@ -27,6 +25,5 @@ int main(void)
 		}
 	}
 	putchar('\n');
-
 	return (0);
 }
