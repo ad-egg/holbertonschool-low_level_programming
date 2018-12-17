@@ -7,23 +7,18 @@
 
 int main(void)
 {
-	int n;
+	int n, n1, n2, n3;
 
-	for (n = 12; n <= 789; n++)
+	for (n = 12; n < 790; n++)
 	{
-		if (((n % 10) > ((n / 10) % 10)) && (((n / 10) % 10) > (n / 100)))
+		n1 = n / 100;
+		n2 = (n / 10) % 10;
+		n3 = n % 10;
+		if ((n1 < n2) && (n2 < n3))
 		{
-			putchar ((n / 100) + '0');
-			if ((n / 100) != ((n / 10) % 10))
-			{
-				putchar(((n / 10) % 10) + '0');
-				if (((n / 10) % 10) != (n % 10))
-					putchar((n % 10) + '0');
-				else
-					continue;
-			}
-			else
-				continue;
+			putchar(n1 + '0');
+			putchar(n2 + '0');
+			putchar(n3 + '0');
 			if (n < 789)
 			{
 				putchar(',');
@@ -32,6 +27,5 @@ int main(void)
 		}
 	}
 	putchar('\n');
-
 	return (0);
 }
