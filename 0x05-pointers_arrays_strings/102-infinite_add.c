@@ -62,7 +62,7 @@ void *_itoa(int n, char *str)
  * @n1: first integer to be added
  * @n2: second integer to be added
  * @r: buffer to store the answer
- * size_r: size of buffer to be allocated for answer
+ * @size_r: size of buffer to be allocated for answer
  * Return: pointer to buffer that is storing the sum
  */
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
