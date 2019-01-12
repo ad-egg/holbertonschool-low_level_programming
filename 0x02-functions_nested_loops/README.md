@@ -27,4 +27,6 @@ This function prints all integers from `n` to 98.
 ### 100-times_table.c
 This function prints the times table for `n` when `n` is greater than 0 and less than or equal to 15. 
 ### 101-natural.c
-This function prints the sum of all the multiples of 3 or 5 under 1024.
+This program prints the sum of all the multiples of 3 or 5 under 1024.
+### 102-fibonacci.c
+This program prints the first 50 Fibonacci numbers starting with 1 and 2.
