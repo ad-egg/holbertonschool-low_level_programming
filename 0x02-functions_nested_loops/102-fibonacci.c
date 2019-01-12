@@ -7,7 +7,7 @@
 int main(void)
 {
 	int reps;
-	long unsigned int fib, num1 = 0, num2 = 1;
+	unsigned long int fib, num1 = 0, num2 = 1;
 
 	for (reps = 1; reps <= 50; reps++)
 	{
