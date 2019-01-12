@@ -7,15 +7,10 @@
 
 int main(void)
 {
-	_putchar('H');
-	_putchar('o');
-	_putchar('l');
-	_putchar('b');
-	_putchar('e');
-	_putchar('r');
-	_putchar('t');
-	_putchar('o');
-	_putchar('n');
-	_putchar('\n');
+	char *string = "Holberton\n";
+	int i;
+
+	for (i = 0; i < 10; i++)
+		_putchar(string[i]);
 	return (0);
 }
