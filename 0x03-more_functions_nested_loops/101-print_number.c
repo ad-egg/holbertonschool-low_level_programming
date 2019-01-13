@@ -33,11 +33,8 @@ void print_number(int n)
 	else
 		n2 = n;
 	temp = n2;
-	while (temp > 0)
-	{
+	for (; temp > 0; temp /= 10)
 		power++;
-		temp /= 10;
-	}
 	while (power > 0)
 	{
 		_putchar(n2 / _pow(10, power) + '0');
