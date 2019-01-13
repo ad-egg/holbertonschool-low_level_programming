@@ -30,3 +30,5 @@ This function prints the times table for `n` when `n` is greater than 0 and less
 This program prints the sum of all the multiples of 3 or 5 under 1024.
 ### 102-fibonacci.c
 This program prints the first 50 Fibonacci numbers starting with 1 and 2.
+### 103-fibonacci.c
+This program finds and prints the sum of the even values that do not exceed 4,000,000 in the Fibonacci sequence.
