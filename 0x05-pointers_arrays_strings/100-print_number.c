@@ -1,30 +1,18 @@
-#include <stdlib.h>
 #include "holberton.h"
 
 /**
- * rev_string - reverses a string
- * @s: this string will be reversed
+ * _pow - raises x to the power of y
+ * @x: base number
+ * @y: base number is raised to this power
+ * Return: x to the power of y
  */
-void rev_string(char *s)
+int _pow(int x, int y)
 {
-	int a, b, c, len;
+	int no = 1;
 
-	a = 0;
-	len = 0;
-
-	while (s[len] != '\0')
-		len++;
-
-	b = len - 1;
-
-	while (a < b)
-	{
-		c = s[a];
-		s[a] = s[b];
-		s[b] = c;
-		a++;
-		b--;
-	}
+	for (; y > 1; y--)
+		no *= x;
+	return (no);
 }
 
 /**
@@ -33,39 +21,27 @@ void rev_string(char *s)
  */
 void print_number(int n)
 {
-	char *no;
-	int i = 0, n2, temp;
+	unsigned int n2, power = 0, temp;
 
 	if (n < 0)
+	{
+		_putchar('-');
 		n2 = n * -1;
-	else if (n > 0)
-		n2 = n;
-	else
+	}
+	else if (n == 0)
 	{
 		_putchar(0 + '0');
 		return;
 	}
+	else
+		n2 = n;
 	temp = n2;
-	while (temp > 0)
+	for (; temp > 0; temp /= 10)
+		power++;
+	while (power > 0)
 	{
-		temp /= 10;
-		i++;
+		_putchar(n2 / _pow(10, power) + '0');
+		n2 %= _pow(10, power);
+		power--;
 	}
-	if (n < 0)
-		i += 1;
-	no = malloc(sizeof(char) * i);
-	if (no == NULL)
-		return;
-	for (i = 0; n2 > 0; i++)
-	{
-		no[i] = ((n2 % 10) + '0');
-		n2 /= 10;
-	}
-	if (n < 0)
-		no[i++] = '-';
-	no[i] = '\0';
-	rev_string(no);
-	for (i = 0; no[i] != '\0'; i++)
-		_putchar(no[i]);
-	free(no);
 }
