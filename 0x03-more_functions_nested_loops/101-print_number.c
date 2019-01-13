@@ -21,7 +21,7 @@ int _pow(int x, int y)
  */
 void print_number(int n)
 {
-	int n2, power = 0, temp;
+	unsigned int n2, power = 0, temp;
 
 	if (n < 0)
 	{
