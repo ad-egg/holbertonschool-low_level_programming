@@ -29,7 +29,10 @@ void print_number(int n)
 		n2 = n * -1;
 	}
 	else if (n == 0)
+	{
 		_putchar(0 + '0');
+		return;
+	}
 	else
 		n2 = n;
 	temp = n2;
