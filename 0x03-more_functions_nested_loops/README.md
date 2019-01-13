@@ -22,3 +22,5 @@ This function prints a square.
 This function prints the numbers from `1` to `100`, but for multiples of `3` print `Fizz` instead of the number and for multiples of `5` print `Buzz` and for multiples of both `3` and `5` print `FizzBuzz`.
 ### 10-print_triangle.c
 This function prints a triangle.
+### 101-print_number.c
+This function prints an integer without using arrays or pointers.
