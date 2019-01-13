@@ -32,3 +32,5 @@ This program prints the sum of all the multiples of 3 or 5 under 1024.
 This program prints the first 50 Fibonacci numbers starting with 1 and 2.
 ### 103-fibonacci.c
 This program finds and prints the sum of the even values that do not exceed 4,000,000 in the Fibonacci sequence.
+### 104-fibonacci.c
+This program finds and prints the first 98 Fibonacci numbers starting with 1 and 2.
