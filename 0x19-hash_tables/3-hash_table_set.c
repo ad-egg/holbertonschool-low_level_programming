@@ -10,7 +10,7 @@
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int ind;
-	hash_node_t *node, *temp;
+	hash_node_t *node, *temp = NULL;
 
 	if (ht == NULL)
 		return (0);
@@ -26,20 +26,20 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		node->next = NULL;
 	else
 	{
-		/* check if there are any duplicate keys
-		use strcmp
-		if there is duplicate key update the value
-		if (strcmp() == 0)
+		temp = ht->array[ind];
+		while (temp != NULL)
 		{
-			
-			free(node);
-			return (1);
+			if (strcmp(temp->key, key) == 0)
+			{
+				temp->value = strdup(value);
+				free(node);
+				return (1);
+			}
+			temp = temp->next;
 		}
-		else	*/
-		{
-			temp = ht->array[ind];
-			node->next = temp;
-		}
+		temp = ht->array[ind];
+		node->next = temp;
+		ht->array[index] = node;
 	}
 	ht->array[ind] = node;
 	return (1);
