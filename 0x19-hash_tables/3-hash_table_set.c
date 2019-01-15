@@ -28,9 +28,12 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	{
 		/* check if there are any duplicate keys
 		use strcmp
-		if there are duplicates do something
+		if there is duplicate key update the value
+		if (strcmp() == 0)
 		{
-
+			
+			free(node);
+			return (1);
 		}
 		else	*/
 		{
