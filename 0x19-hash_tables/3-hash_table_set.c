@@ -26,8 +26,17 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		node->next = NULL;
 	else
 	{
-		temp = ht->array[ind];
-		node->next = temp;
+		/* check if there are any duplicate keys
+		use strcmp
+		if there are duplicates do something
+		{
+
+		}
+		else	*/
+		{
+			temp = ht->array[ind];
+			node->next = temp;
+		}
 	}
 	ht->array[ind] = node;
 	return (1);
