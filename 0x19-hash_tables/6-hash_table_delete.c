@@ -13,7 +13,10 @@ void hash_table_delete(hash_table_t *ht)
 	if (table == NULL)
 		return;
 	if (table->array == NULL)
+	{
+		free(table);
 		return;
+	}
 	for (index = 0; index < table->size; index++)
 	{
 		node = table->array[index];
