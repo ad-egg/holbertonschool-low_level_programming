@@ -35,20 +35,15 @@ void insertion_sort_list(listint_t **list)
 						print_list(*list);
 						break;
 					}
-					else
-					{
-						back->next = swap;
-						print_list(*list);
-						temp = swap->prev;
-					}
+					back->next = swap;
+					print_list(*list);
+					temp = swap->prev;
 				}
 				else
 					break;
 			}
 			swap = move->next;
-			continue;
-		}
+			continue; }
 		move = move->next;
 		swap = swap->next;
-	}
-}
+	} }
