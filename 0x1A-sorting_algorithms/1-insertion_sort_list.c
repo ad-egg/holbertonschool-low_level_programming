@@ -9,11 +9,11 @@ void insertion_sort_list(listint_t **list)
 {
 	listint_t *move = *list, *swap, *temp, *back, *forward;
 
-	if ((move == NULL) || (move->next == NULL))
+	if ((list == NULL) || (move == NULL) || (move->next == NULL))
 		return;
-	swap = move->next;
 	while (move->next != NULL)
 	{
+		swap = move->next;
 		if (move->n > swap->n)
 		{
 			temp = move;
@@ -41,6 +41,5 @@ void insertion_sort_list(listint_t **list)
 			continue;
 		}
 		move = move->next;
-		swap = swap->next;
 	}
 }
