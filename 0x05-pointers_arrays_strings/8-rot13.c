@@ -1,5 +1,4 @@
 #include <stdlib.h>
-#include <string.h>
 #include "holberton.h"
 
 /**
@@ -10,19 +9,27 @@
 
 char *rot13(char *str)
 {
-	int i, j;
+	int i, j, len;
 	char *newstr;
 	char *old = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 	char *new = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
-	newstr = strdup(str);
-	for (i = 0; newstr[i] != '\0'; i++)
+	if (str == NULL)
+		return (NULL);
+	for (len = 0; str[len] != '\0'; len++)
+		;
+	newstr = malloc(len);
+	if (newstr == NULL)
+		return (NULL);
+	for (i = 0; str[i] != '\0'; i++)
 	{
-		for (j = 0; old[j] != '\0'; j++)
-		{
-			if (str[i] == old[j])
-				newstr[i] = new[j];
-		}
+		for (j = 0; old[j] != '\0' && str[i] != old[j]; j++)
+			;
+		if (str[i] == old[j])
+			newstr[i] = new[j];
+		else
+			newstr[i] = str[i];
+			
 	}
 	return (newstr);
 }
