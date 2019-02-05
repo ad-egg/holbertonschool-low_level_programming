@@ -9,7 +9,7 @@ void insertion_sort_list(listint_t **list)
 {
 	listint_t *move = *list, *swap, *temp, *back, *forward;
 
-	if ((list == NULL) || (move == NULL) || (move->next == NULL))
+	if ((move == NULL) || (list == NULL) || (move->next == NULL))
 		return;
 	while (move->next != NULL)
 	{
