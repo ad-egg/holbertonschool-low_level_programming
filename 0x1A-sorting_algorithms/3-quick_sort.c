@@ -9,10 +9,10 @@
  */
 unsigned int array_part(int *array, unsigned int begin, unsigned int end, size_t size)
 {
-	unsigned int i = -1, j = begin;
+	unsigned int i = begin - 1, j;
 	int temp;
 
-	for (; j < end; j++)
+	for (j = begin; j < end; j++)
 	{
 		if (array[j] < array[end])
 		{
@@ -24,11 +24,10 @@ unsigned int array_part(int *array, unsigned int begin, unsigned int end, size_t
 		}
 	}
 	temp = array[end];
-	for (; j > i + 1; j--)
-		array[j] = array[j - 1];
-	array[j] = temp;
+	array[end] = array[i + 1];
+	array[i + 1] = temp;
 	print_array(array, size);
-	return (j);
+	return (i + 1);
 }
 
 /**
