@@ -25,7 +25,7 @@ unsigned int array_part(int *array, unsigned int begin, unsigned int end, size_t
 	}
 	temp = array[end];
 	for (; j > i + 1; j--)
-		array[j] = array[j + 1];
+		array[j] = array[j - 1];
 	array[j] = temp;
 	print_array(array, size);
 	return (j);
