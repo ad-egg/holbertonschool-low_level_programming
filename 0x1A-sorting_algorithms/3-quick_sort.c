@@ -14,7 +14,7 @@ unsigned int array_part(int *array, unsigned int begin, unsigned int end, size_t
 
 	for (j = begin; j < end; j++)
 	{
-		if (array[j] < array[end])
+		if (array[j] <= array[end])
 		{
 			i += 1;
 			temp = array[j];
