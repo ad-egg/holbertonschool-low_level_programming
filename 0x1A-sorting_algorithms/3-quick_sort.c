@@ -7,14 +7,14 @@
  * @end: ending index of array
  * Return: index at which pivot value is placed
  */
-unsigned int array_part(int *array, unsigned int begin, unsigned int end, size_t size)
+int array_part(int *array, int begin, int end, size_t size)
 {
-	unsigned int i = begin - 1, j;
-	int temp;
+	int i = begin - 1, temp;
+	int j;
 
 	for (j = begin; j < end; j++)
 	{
-		if (array[j] <= array[end])
+		if (array[j] < array[end])
 		{
 			i += 1;
 			temp = array[j];
@@ -23,10 +23,13 @@ unsigned int array_part(int *array, unsigned int begin, unsigned int end, size_t
 			print_array(array, size);
 		}
 	}
-	temp = array[end];
-	array[end] = array[i + 1];
-	array[i + 1] = temp;
-	print_array(array, size);
+	if (i + 1 != end)
+	{
+		temp = array[end];
+		array[end] = array[i + 1];
+		array[i + 1] = temp;
+		print_array(array, size);
+	}
 	return (i + 1);
 }
 
@@ -37,14 +40,15 @@ unsigned int array_part(int *array, unsigned int begin, unsigned int end, size_t
  * @begin: beginning index of array
  * @end: end index of array
  */
-void q_sort(int *array, unsigned int begin, unsigned int end, size_t size)
+void q_sort(int *array, int begin, int end, size_t size)
 {
-	unsigned int part;
+	int part;
 
 	if (begin < end)
 	{
 		part = array_part(array, begin, end, size);
-		q_sort(array, begin, part - 1, size);
+		if (part != 0)
+			q_sort(array, begin, part - 1, size);
 		q_sort(array, part + 1, end, size);
 	}
 }
