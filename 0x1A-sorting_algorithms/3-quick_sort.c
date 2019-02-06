@@ -5,6 +5,7 @@
  * @array: pointer to integer array
  * @begin: beginning index of array
  * @end: ending index of array
+ * @size: size of integer array
  * Return: index at which pivot value is placed
  */
 int array_part(int *array, int begin, int end, size_t size)
@@ -39,6 +40,7 @@ int array_part(int *array, int begin, int end, size_t size)
  * @array: pointer to integer array
  * @begin: beginning index of array
  * @end: end index of array
+ * @size: size of integer array
  */
 void q_sort(int *array, int begin, int end, size_t size)
 {
