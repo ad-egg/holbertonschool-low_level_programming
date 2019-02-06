@@ -57,8 +57,6 @@ void q_sort(int *array, unsigned int begin, unsigned int end, size_t size)
  */
 void quick_sort(int *array, size_t size)
 {
-	unsigned int begin = 0, end = size - 1;
-
 	if (array != NULL && size > 1)
-		q_sort(array, begin, end, size);
+		q_sort(array, 0, size - 1, size);
 }
