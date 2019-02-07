@@ -11,25 +11,26 @@ void selection_sort(int *array, size_t size)
 	int temp;
 	unsigned int i, j, k = 1, min;
 
-	if ((array == NULL) || (size <= 1))
-		return;
-	for (i = 0; i < size - 1; i++)
+	if ((array != NULL) && (size > 1))
 	{
-		j = k;
-		min = i;
-		while (j < size)
+		for (i = 0; i < size - 1; i++)
 		{
-			if (array[min] > array[j])
-				min = j;
-			j++;
+			j = k;
+			min = i;
+			while (j < size)
+			{
+				if (array[min] > array[j])
+					min = j;
+				j++;
+			}
+			if (min > i)
+			{
+				temp = array[i];
+				array[i] = array[min];
+				array[min] = temp;
+				print_array(array, size);
+			}
+			k++;
 		}
-		if (min > i)
-		{
-			temp = array[i];
-			array[i] = array[min];
-			array[min] = temp;
-			print_array(array, size);
-		}
-		k++;
 	}
 }
