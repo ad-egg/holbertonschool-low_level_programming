@@ -14,7 +14,7 @@ int array_part(int *array, int begin, int end, size_t size)
 
 	for (j = begin; j < end; j++)
 	{
-		if (array[j] < array[end])
+		if (array[j] <= array[end])
 		{
 			i += 1;
 			if (i != j)
