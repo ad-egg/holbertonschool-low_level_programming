@@ -2,11 +2,10 @@
 
 /**
  * swap_nodes - swaps the position of two nodes in a doubly linked list
- * @list: pointer to first node of a doubly linked list
  * @a: one of the nodes whose position is to be swapped
  * @b: one of the nodes whose position to be swapped
  */
-void swap_nodes(listint_t **list, listint_t *a, listint_t *b)
+void swap_nodes(listint_t *a, listint_t *b)
 {
 	a->next = b->next;
 	if (a->next != NULL)
@@ -14,8 +13,6 @@ void swap_nodes(listint_t **list, listint_t *a, listint_t *b)
 	b->prev = a->prev;
 	if (b->prev != NULL)
 		b->prev->next = b;
-	else
-		*list = b;
 	a->prev = b;
 	b->next = a;
 }
@@ -41,7 +38,9 @@ void cocktail_sort_list(listint_t **list)
 			{
 				swap = move->next;
 				if (move->n > swap->n)
-					swap_nodes(list, move, swap);
+					swap_nodes(move, swap);
+				if (swap->prev == NULL)
+					*list = swap;
 				print_list(*list);
 				move = move->next;
 				s = 0;
@@ -53,7 +52,9 @@ void cocktail_sort_list(listint_t **list)
 			{
 				swap = move->prev;
 				if (move->n < swap->n)
-					swap_nodes(list, swap, move);
+					swap_nodes(swap, move);
+				if (move->prev == NULL)
+					*list = move;
 				print_list(*list);
 				move = move->prev;
 				s = 0;
