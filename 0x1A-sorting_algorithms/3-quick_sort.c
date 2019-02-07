@@ -10,18 +10,20 @@
  */
 int array_part(int *array, int begin, int end, size_t size)
 {
-	int i = begin - 1, temp;
-	int j;
+	int i = begin - 1, temp, j;
 
 	for (j = begin; j < end; j++)
 	{
 		if (array[j] < array[end])
 		{
 			i += 1;
-			temp = array[j];
-			array[j] = array[i];
-			array[i] = temp;
-			print_array(array, size);
+			if (i != j)
+			{
+				temp = array[j];
+				array[j] = array[i];
+				array[i] = temp;
+				print_array(array, size);
+			}
 		}
 	}
 	if (i + 1 != end)
@@ -49,8 +51,7 @@ void q_sort(int *array, int begin, int end, size_t size)
 	if (begin < end)
 	{
 		part = array_part(array, begin, end, size);
-		if (part != 0)
-			q_sort(array, begin, part - 1, size);
+		q_sort(array, begin, part - 1, size);
 		q_sort(array, part + 1, end, size);
 	}
 }
