@@ -17,7 +17,7 @@ void insertion_sort_list(listint_t **list)
 			if (move->n >= swap->n)
 			{
 				temp = move;
-				while ((temp != NULL) && (temp->n >= swap->n))
+				while ((temp != NULL) && (temp->n > swap->n))
 				{
 					temp->next = swap->next;
 					if (temp->next != NULL)
