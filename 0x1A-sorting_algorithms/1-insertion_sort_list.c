@@ -14,10 +14,10 @@ void insertion_sort_list(listint_t **list)
 		while (move->next != NULL)
 		{
 			swap = move->next;
-			if (move->n > swap->n)
+			if (move->n >= swap->n)
 			{
 				temp = move;
-				while ((temp != NULL) && (temp->n > swap->n))
+				while ((temp != NULL) && (temp->n >= swap->n))
 				{
 					temp->next = swap->next;
 					if (temp->next != NULL)
