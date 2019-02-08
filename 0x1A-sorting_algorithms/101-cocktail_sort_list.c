@@ -24,42 +24,56 @@ void swap_nodes(listint_t *a, listint_t *b)
 */
 void cocktail_sort_list(listint_t **list)
 {
-	listint_t *move = *list, *swap, *begin = *list, *end = *list;
-	int s = 0;
+	listint_t *move, *swap, *begin, *end;
+	int i = 0;
 
-	if ((move != NULL) && (list != NULL) && (move->next != NULL))
+	if ((list != NULL) && (*list != NULL) && ((*list)->next != NULL))
 	{
+		move = *list;
+		begin = *list;
+		end = *list;
 		while (end->next != NULL)
 			end = end->next;
-		while (s == 0)
+		while (begin != end)
 		{
-			s = 1;
-			while (move->next != end)
+			if (i == 0)
 			{
 				swap = move->next;
+				if (swap == end)
+				{
+					end = end->prev;
+					i = 1;
+				}
 				if (move->n > swap->n)
+				{
 					swap_nodes(move, swap);
-				if (swap->prev == NULL)
-					*list = swap;
-				print_list(*list);
+					if (swap->prev == NULL)
+						*list = swap;
+					print_list(*list);
+					continue;
+				}
 				move = move->next;
-				s = 0;
 			}
-			end = end->prev;
-			if (s == 1)
+			if (begin == end)
 				break;
-			while (move->prev != begin)
+			if (i == 1)
 			{
 				swap = move->prev;
+				if (swap == begin)
+				{
+					begin = begin->next;
+					i = 0;
+				}
 				if (move->n < swap->n)
+				{
 					swap_nodes(swap, move);
-				if (move->prev == NULL)
-					*list = move;
-				print_list(*list);
+					if (move->prev == NULL)
+						*list = move;
+					print_list(*list);
+					continue;
+				}
 				move = move->prev;
-				s = 0;
 			}
-			begin = begin->next;
 		}
 	}
 }
