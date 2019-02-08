@@ -44,13 +44,11 @@ void cocktail_sort_list(listint_t **list)
 				if (move->next == end)
 				{
 					end = end->prev;
-					i = 1;
-				}
+					i = 1; }
 				if (move->n > swap->n)
 				{
 					swap_nodes(list, move, swap);
-					continue;
-				}
+					continue; }
 				move = move->next;
 			}
 			if (begin == end)
@@ -61,15 +59,9 @@ void cocktail_sort_list(listint_t **list)
 				if (move->prev == begin)
 				{
 					begin = begin->next;
-					i = 0;
-				}
+					i = 0; }
 				if (move->n < swap->n)
 				{
 					swap_nodes(list, swap, move);
-					continue;
-				}
-				move = move->prev;
-			}
-		}
-	}
-}
+					continue; }
+				move = move->prev; } } } }
