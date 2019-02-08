@@ -40,15 +40,18 @@ void cocktail_sort_list(listint_t **list)
 				if (move->next == end)
 				{
 					end = end->prev;
-					i = 1; }
+					i = 1;
+				}
 				if (move->n > swap->n)
 				{
 					swap_nodes(move, swap);
 					if (swap->prev == NULL)
 						*list = swap;
 					print_list(*list);
-					continue; }
-				move = move->next; }
+					continue;
+				}
+				move = move->next;
+			}
 			if (begin == end)
 				break;
 			if (i == 1)
@@ -57,12 +60,18 @@ void cocktail_sort_list(listint_t **list)
 				if (move->prev == begin)
 				{
 					begin = begin->next;
-					i = 0; }
+					i = 0;
+				}
 				if (move->n < swap->n)
 				{
 					swap_nodes(swap, move);
 					if (move->prev == NULL)
 						*list = move;
 					print_list(*list);
-					continue; }
-				move = move->prev; } } } }
+					continue;
+				}
+				move = move->prev;
+			}
+		}
+	}
+}
