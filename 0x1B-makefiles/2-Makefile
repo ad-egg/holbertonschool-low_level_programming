@@ -1,7 +1,7 @@
 CC=gcc
-SRC:=$(wildcard *.c)
+SRC:=main.c holberton.c
 OBJ:=$(SRC:.c=.o)
 NAME=holberton
 
 all: $(OBJ)
-	$(CC) $^ -o $(NAME)
+	$(CC) $(SRC) -o $(NAME)
