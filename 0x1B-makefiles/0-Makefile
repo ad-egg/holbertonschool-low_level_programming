@@ -1,0 +1,4 @@
+CC=gcc
+
+all: main.c holberton.c m.h
+	$(CC) $^ -o holberton
