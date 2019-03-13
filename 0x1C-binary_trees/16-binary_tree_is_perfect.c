@@ -28,13 +28,15 @@ unsigned int bin_tree_size(const binary_tree_t *tree)
  * @num_nodes: number of nodes in binary tree
  * Return: 1 if binary tree is perfect, 0 if not
  */
-int is_tree_perf(const binary_tree_t *tree, unsigned int index, unsigned int num_nodes)
+int is_tree_perf(const binary_tree_t *tree, unsigned int index,
+		unsigned int num_nodes)
 {
 	if (tree == NULL)
 		return (1);
 	if (index >= num_nodes)
 		return (0);
-	return (is_tree_perf(tree->left, 2 * index + 1, num_nodes) && is_tree_perf(tree->right, 2 * index + 2, num_nodes));
+	return (is_tree_perf(tree->left, 2 * index + 1, num_nodes) &&
+			is_tree_perf(tree->right, 2 * index + 2, num_nodes));
 }
 
 /**

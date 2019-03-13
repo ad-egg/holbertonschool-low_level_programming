@@ -7,7 +7,7 @@
  */
 long int _bin_tree_h(const binary_tree_t *tree)
 {
-	if (tree == NULL)	
+	if (tree == NULL)
 		return (0);
 	if ((1 + _bin_tree_h(tree->left)) > (1 + _bin_tree_h(tree->right)))
 		return (1 + _bin_tree_h(tree->left));
