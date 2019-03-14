@@ -6,14 +6,16 @@
  * @tree: pointer to root node of tree to be checked
  * @min: minimum value that should stored in tree node
  * @max: maximum value that should be stored in tree node
+ * Return: 1 if binary tree is a binary search tree, 0 if not
  */
 int is_bst_recur(const binary_tree_t *tree, int min, int max)
 {
 	if (tree == NULL)
 		return (1);
-	if ((tree->n < min) || (tree->n > max))
+	if ((tree->n <= min) || (tree->n >= max))
 		return (0);
-	return (is_bst_recur(tree->left, min, tree->n + 1) && is_bst_recur(tree->right, tree->n + 1, max));
+	return (is_bst_recur(tree->left, min, tree->n + 1) &&
+			is_bst_recur(tree->right, tree->n + 1, max));
 }
 
 /**
