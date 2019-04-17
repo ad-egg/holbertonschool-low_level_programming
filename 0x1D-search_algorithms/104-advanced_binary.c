@@ -6,7 +6,7 @@
  * @begin: index to begin searching
  * @end: index to stop searching
  * @value: value to be found
- * Return: index at which value can be found, or -1 if it is not in array
+ * Return: first index at which value can be found, or -1 if it is not in array
  */
 unsigned int bin_search(int *array, unsigned int begin, unsigned int end,
 		int value)
@@ -35,9 +35,7 @@ unsigned int bin_search(int *array, unsigned int begin, unsigned int end,
 	else if (array[mid] < value)
 		return (bin_search(array, mid + 1, end, value));
 	else
-	{
 		return (bin_search(array, begin, mid, value));
-	}
 }
 
 /**
