@@ -22,6 +22,8 @@ unsigned int bin_search(int *array, unsigned int begin, unsigned int end,
 		else
 			printf("\n");
 	}
+	if (array[begin] == value)
+		return (begin);
 	if (begin == end)
 	{
 		if (array[end] == value)
