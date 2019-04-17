@@ -8,7 +8,8 @@
  * @value: value to be found
  * Return: index at which value can be found, or -1 if it is not in array
  */
-unsigned int bin_search(int *array, unsigned int begin, unsigned int end, int value)
+unsigned int bin_search(int *array, unsigned int begin, unsigned int end,
+		int value)
 {
 	unsigned int i, mid;
 
