@@ -47,9 +47,7 @@ unsigned int bin_search(int *array, unsigned int begin, unsigned int end,
 
 unsigned int _pow_r(unsigned int x, unsigned int y)
 {
-	if (y < 0)
-		return (-1);
-	else if (y == 0)
+	if (y == 0)
 		return (1);
 	else
 		return (x * _pow_r(x, y - 1));
@@ -80,8 +78,17 @@ int exponential_search(int *array, size_t size, int value)
 			return (-1);
 	}
 	b = _pow_r(2, power);
-	for (; b < size; power++)
+	power++;
+	for (; b < size && array[b] < value; power++)
 	{
 		printf("Value checked array[%u] = [%i]\n", b, array[b]);
+		if (array[b] == value)
+			return (b);
+		a = b;
+		b = _pow_r(2, power);
 	}
+	if (b > size - 1)
+		b = size - 1;
+	printf("Value found between indexes [%u] and [%u]\n", a, b);
+	return (bin_search(array, a, b, value));
 }
