@@ -52,12 +52,5 @@ int advanced_binary(int *array, size_t size, int value)
 		return (-1);
 	if (size == 0)
 		return (-1);
-	if (size == 1)
-	{
-		if (array[0] == value)
-			return (0);
-		else
-			return (-1);
-	}
 	return (bin_search(array, 0, size - 1, value));
 }
