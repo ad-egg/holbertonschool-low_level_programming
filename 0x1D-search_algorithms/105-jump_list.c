@@ -43,6 +43,8 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 				back->index, back->n);
 		if (back->n == value)
 			return (back);
+		else if (back->n > value)
+			break;
 	}
 	return (NULL);
 }
