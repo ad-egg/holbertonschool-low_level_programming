@@ -21,18 +21,22 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 	r = sqrt(size);
 	forward = list;
 	back = forward;
-	for (i = forward->index + r; forward->index < i && forward->next != NULL; forward = forward->next)
+	for (i = forward->index + r; forward->index < i &&
+			forward->next != NULL; forward = forward->next)
 		;
-	while(forward->next != NULL)
+	while (forward->next != NULL)
 	{
-		printf("Value checked at index [%lu] = [%i]\n", forward->index, forward->n);
+		printf("Value checked at index [%lu] = [%i]\n",
+				forward->index, forward->n);
 		if (forward->n > value)
 			break;
 		back = forward;
-		for (i = forward->index + r; forward->index < i && forward->next != NULL; forward = forward->next)
+		for (i = forward->index + r; forward->index < i &&
+				forward->next != NULL; forward = forward->next)
 			;
 	}
-	printf("Value found between indexes [%lu] and [%lu]\n", back->index, forward->index);
+	printf("Value found between indexes [%lu] and [%lu]\n",
+			back->index, forward->index);
 	for (; back->index <= forward->index; back = back->next)
 	{
 		printf("Value checked at index [%lu] = [%i]\n", back->index, back->n);
