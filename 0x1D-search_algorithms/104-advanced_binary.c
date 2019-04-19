@@ -22,6 +22,8 @@ unsigned int bin_search(int *array, unsigned int begin, unsigned int end,
 		else
 			printf("\n");
 	}
+	if (((end - begin) == 1) && (array[begin] == value))
+		return (begin);
 	if (begin == end)
 	{
 		if (array[end] == value)
@@ -31,7 +33,7 @@ unsigned int bin_search(int *array, unsigned int begin, unsigned int end,
 	}
 	mid = (begin + end) / 2;
 	if (array[mid] > value)
-		return (bin_search(array, begin, mid, value));
+		return (bin_search(array, begin, mid - 1, value));
 	else if (array[mid] < value)
 		return (bin_search(array, mid + 1, end, value));
 	else
