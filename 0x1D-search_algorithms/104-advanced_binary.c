@@ -31,7 +31,7 @@ unsigned int bin_search(int *array, unsigned int begin, unsigned int end,
 	}
 	mid = (begin + end) / 2;
 	if (array[mid] > value)
-		return (bin_search(array, begin, mid - 1, value));
+		return (bin_search(array, begin, mid, value));
 	else if (array[mid] < value)
 		return (bin_search(array, mid + 1, end, value));
 	else
