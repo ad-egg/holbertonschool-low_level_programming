@@ -34,13 +34,10 @@ unsigned int bin_search(int *array, unsigned int begin, unsigned int end,
 		return (bin_search(array, begin, mid - 1, value));
 	else if (array[mid] < value)
 		return (bin_search(array, mid + 1, end, value));
+	if ((end - begin) == 1 && (array[begin] == value))
+		return (bin_search(array, begin, begin, value));
 	else
-	{
-		if ((end - begin) == 1 && (array[begin] == value))
-			return (bin_search(array, begin, begin, value));
-		else
-			return (bin_search(array, begin, mid, value));
-	}
+		return (bin_search(array, begin, mid, value));
 }
 
 /**
