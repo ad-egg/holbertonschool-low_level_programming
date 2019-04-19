@@ -11,35 +11,31 @@
  */
 listint_t *jump_list(listint_t *list, size_t size, int value)
 {
-	listint_t *forward, *back;
+	listint_t *back, *forward;
 	unsigned int r, i;
 
 	if (list == NULL)
 		return (NULL);
-	forward = list;
-	if ((size == 0) || (size == 1 && forward->n != value))
-		return (NULL);
-	if (forward->n == value)
-		return (forward);
-	if (forward->n > value)
+	if (size == 0)
 		return (NULL);
 	r = sqrt(size);
-	for (; forward->index < forward->index + r && forward->next != NULL; forward = forward->next)
+	forward = list;
+	back = forward;
+	for (i = forward->index + r; forward->index < i && forward->next != NULL; forward = forward->next)
 		;
-	while (forward->index < size && forward->n < value)
+	while(forward->next != NULL)
 	{
 		printf("Value checked at index [%lu] = [%i]\n", forward->index, forward->n);
-		if (forward->n == value)
-			return (forward);
+		if (forward->n > value)
+			break;
 		back = forward;
-		i = forward->index + r;
-		for (; forward->index < i && forward->next != NULL; forward = forward->next)
+		for (i = forward->index + r; forward->index < i && forward->next != NULL; forward = forward->next)
 			;
 	}
 	printf("Value found between indexes [%lu] and [%lu]\n", back->index, forward->index);
-	for (; back != forward; back = back->next)
+	for (; back != forward->next; back = back->next)
 	{
-		printf("Value checked at index [%lu] = [%i]", back->index, back->n);
+		printf("Value checked at index [%lu] = [%i]\n", back->index, back->n);
 		if (back->n == value)
 			return (back);
 	}
