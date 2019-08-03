@@ -1,7 +1,4 @@
 #include "lists.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 
 /**
  * sum_listint - returns the sum of all the data of a listint_t list

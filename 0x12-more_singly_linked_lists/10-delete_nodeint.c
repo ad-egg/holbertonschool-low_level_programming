@@ -1,7 +1,4 @@
 #include "lists.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 
 /**
  * delete_nodeint_at_index - deletes the node at index index of a linked list
